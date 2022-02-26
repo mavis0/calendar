@@ -1,0 +1,26 @@
+.inner-scroll {
+  overflow-y: hidden;
+}
+.in-toolbar {
+  --opacity: 0.5;
+  /* --background: white; */
+  padding-top: 15px !important;
+}
+.header {
+  padding: 0px;
+}
+.header span {
+  display: block;
+  padding-left: 30px;
+  text-align: start;
+}
+.weekbar {
+  padding-top: 5px;
+  font-size: 10px;
+}
+/* .overscroll {
+  --background: red;
+} */
+.overscroll::part(main) {
+  overflow-y: hidden;
+}
