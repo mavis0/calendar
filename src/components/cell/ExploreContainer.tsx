@@ -1,32 +1,36 @@
-import { useState } from 'react';
-import { isLeapYear } from '../../util';
-import './ExploreContainer.css';
+import { useState } from "react";
+import { geneMonthCal } from "../../util";
+import "./ExploreContainer.css";
 
 interface ContainerProps {}
 
 const ExploreContainer: React.FC<ContainerProps> = () => {
-  const DayOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-  const now = new Date()
-  const firstDay = new Date(now.getFullYear(), now.getMonth(), 1)
-  const pad = (firstDay.getDay() + 6) % 7
-  const calendar = []
-  let week :number[] = []
-  Array.from({length: pad + DayOfMonth[now.getMonth()]}).map((_, i) => {
-    week.push(i + 1 - pad < 0 ? 0: i + 1 - pad) 
-    if (!((i + 1) % 7)) {
-      calendar.push([...week])
-      week = []
-    }
-
-  })
-  if (week.length) calendar.push([...week, ...Array.from({length: 7 - week.length}, _ => 0)])
+  const now = new Date();
+  const geneOneMonthDom = (year: number, month: number) => {
+    const calendar = geneMonthCal(year, month);
+    const now = new Date();
+    const isSameMonth = now.getFullYear() === year && now.getMonth() == month;
+    return calendar.map((week, i) => (
+      <div key={i} className="outer">
+        {week.map((day, j) => (
+          <div key={j} className="cell">
+            <span
+              className={isSameMonth && now.getDay() - 1 === day ? "text" : ""}
+            >
+              {day < 1 ? "" : day}
+            </span>
+          </div>
+        ))}
+      </div>
+    ));
+  };
   return (
     <>
-      {calendar.map((week, i) => <div key={i} className='outer'>
-        {week.map((day, j) => <div key={j} className='cell'>{day < 1 ? '': day}</div>)}
-      </div>)}
+      {geneOneMonthDom(now.getFullYear(), now.getMonth())}
+      {geneOneMonthDom(now.getFullYear(), now.getMonth() + 1)}
+      {geneOneMonthDom(now.getFullYear(), now.getMonth() + 2)}
     </>
-  )
-}
+  );
+};
 
 export default ExploreContainer;
