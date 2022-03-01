@@ -15,7 +15,7 @@ const Home: React.FC = () => {
             <span>{month}月</span>
             <IonRow className="weekbar">
               {
-                week.map(x => <IonCol><div>{x}</div></IonCol>)
+                week.map((x, i) => <IonCol key={i}><div>{x}</div></IonCol>)
               }
             </IonRow>
           </IonTitle>
