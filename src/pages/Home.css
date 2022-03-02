@@ -7,20 +7,23 @@
   padding-top: 15px !important;
 }
 .header {
-  padding: 0px;
+  padding: 9px 0 0;
+  position: fixed;
+  background-color: rgba(20, 20, 20, 0.96);
+  border-bottom: 1px solid rgba(20, 20, 20);
 }
 .header span {
   display: block;
-  padding-left: 30px;
+  padding-left: 15px;
   text-align: start;
 }
 .weekbar {
+  width: 100vw;
   padding-top: 5px;
   font-size: 10px;
+  display: flex;
+  text-align: center;
 }
-/* .overscroll {
-  --background: red;
-} */
 .overscroll::part(main) {
   overflow-y: hidden;
 }

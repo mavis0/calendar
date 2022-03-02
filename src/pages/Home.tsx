@@ -10,16 +10,16 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle className="header">
-            <span>{month}月</span>
-            <IonRow className="weekbar">
+        <div>
+          <div className="header">
+            <span>{date.getFullYear()}年</span>
+            <div className="weekbar">
               {
                 week.map((x, i) => <IonCol key={i}><div>{x}</div></IonCol>)
               }
-            </IonRow>
-          </IonTitle>
-        </IonToolbar>
+            </div>
+          </div>
+        </div>
       </IonHeader>
       <IonContent fullscreen scrollY={false}>
         <ExploreContainer />
