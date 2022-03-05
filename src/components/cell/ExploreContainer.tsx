@@ -10,19 +10,26 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
     const calendar = geneMonthCal(year, month);
     const now = new Date();
     const isSameMonth = now.getFullYear() === year && now.getMonth() == month;
-    return calendar.map((week, i) => (
-      <div key={i} className="outer">
-        {week.map((day, j) => (
-          <div key={j} className="cell">
-            <span
-              className={isSameMonth && now.getDay() - 1 === day ? "text" : ""}
-            >
-              {day < 1 ? "" : day}
-            </span>
+    return (
+      <>
+        <div style={{ textAlign: "center" }}>------------------------{month+1}月------------------------</div>
+        {calendar.map((week, i) => (
+          <div key={i} className="outer">
+            {week.map((day, j) => (
+              <div key={j} className="cell">
+                <span
+                  className={
+                    isSameMonth && now.getDay() - 1 === day ? "text" : ""
+                  }
+                >
+                  {day < 1 ? "" : day}
+                </span>
+              </div>
+            ))}
           </div>
         ))}
-      </div>
-    ));
+      </>
+    );
   };
   return (
     <>

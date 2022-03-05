@@ -1,15 +1,11 @@
-.inner-scroll {
-  overflow-y: hidden;
-}
 .in-toolbar {
   --opacity: 0.5;
-  /* --background: white; */
   padding-top: 15px !important;
 }
 .header {
   padding: 9px 0 0;
   position: fixed;
-  background-color: rgba(20, 20, 20, 0.96);
+  background-color: rgba(30, 30, 30, 0.98);
   border-bottom: 1px solid rgba(20, 20, 20);
 }
 .header span {
